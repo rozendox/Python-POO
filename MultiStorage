@@ -125,7 +125,7 @@ def pagamento(FormaDePagamento):
         return FormaDePagamento.cartao_cred
     elif x == "pix":
         return FormaDePagamento.pix
-    elif x == "avista":
+    elif x == "a vista":
         return FormaDePagamento.a_vista
     else:
         print('- Opção inválida, Por favor, tente novamente -')
