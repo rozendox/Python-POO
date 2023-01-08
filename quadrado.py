@@ -14,7 +14,7 @@ class quadrado:
         if h >= 0:
             self.altura = h
         else:
-            raise Exception("O valor precisa ser maior que sero ou maior.")
+            raise Exception("O valor precisa ser igual a 0 ou maior.")
 
 
 square = Square()
