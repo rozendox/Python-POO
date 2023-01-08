@@ -3,14 +3,14 @@ class quadrado:
         self.altura = 2
         self.largura = 2
 
-    def set_side(self, new_side):
+    def set_lado(self, new_side):
         self.altura = new_side
         self.largura = new_side
 
-    def get_height(self):
+    def get_altura(self):
         return self.altura
 
-    def set_height(self, h):
+    def set_altura(self, h):
         if h >= 0:
             self.altura = h
         else:
@@ -18,4 +18,4 @@ class quadrado:
 
 
 square = Square()
-square.altura = 3  # raises AttributeError
+square.altura = 3  # gera AttributeError
