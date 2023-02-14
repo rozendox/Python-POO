@@ -28,14 +28,17 @@ class cliente:
         self.tel_cli = int(input("Informe o numero de celular ou telefone fixo do cliente."))
         self.end_cli = input("Infome o endereço do cliente")
         self.renda = int(input("Informe a renda do Cliente..."))
-        if self.renda != 0 and self.renda > 1000:
-            print("Possui renda minima para ter a carta de crédito")
-            lk0 = "sim"
+        try:
+            if self.renda != 0 and self.renda > 1000:
+                print("Possui renda minima para ter a carta de crédito")
+                lk0 = "sim"
             if lk0 == "sim":
                 self.credito = int(input("Informe A quantia em crédito que o cliente possuirá"))
-        else:
-            print("O cliente não possui os requisitos para ter a carta de crédito do super mercado.")
-
+            else:
+                print("O cliente não possui os requisitos para ter a carta de crédito do super mercado.")
+        except:
+            raise Exception("""Dados incorretos para inicialização do processo de cadastro do cliente
+                            na carta de crédito""")
 
 
     # Mostrar Cliente
@@ -154,6 +157,13 @@ def displaySp(num):
         print("Sem gravações para procurar...")
     if not found:
         print("Não existem dados gravados com esse número.")
+
+
+
+
+
+
+
 
 
 
