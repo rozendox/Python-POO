@@ -56,3 +56,50 @@ class Supermercado:
         self.vendas.append(venda)
         self.valor_total_vendas += valor_total
        
+if __name__ == '__main__':
+    mercado = Mercado()
+
+    # Carrega dados salvos, se existirem
+    try:
+        with open('dados_mercado.pkl', 'rb') as arquivo:
+            dados_salvos = pickle.load(arquivo)
+            mercado.produtos = dados_salvos['produtos']
+            mercado.clientes = dados_salvos['clientes']
+            mercado.vendas = dados_salvos['vendas']
+    except FileNotFoundError:
+        pass
+
+    # Loop do menu de opções
+    while True:
+        print('-------- MERCADINHO --------')
+        print('1 - Cadastrar produto')
+        print('2 - Cadastrar cliente')
+        print('3 - Realizar venda')
+        print('4 - Verificar estoque')
+        print('5 - Verificar clientes')
+        print('6 - Verificar vendas')
+        print('0 - Sair')
+        opcao = input('Escolha uma opção: ')
+
+        if opcao == '1':
+            mercado.cadastrar_produto()
+        elif opcao == '2':
+            mercado.cadastrar_cliente()
+        elif opcao == '3':
+            mercado.realizar_venda()
+        elif opcao == '4':
+            mercado.verificar_estoque()
+        elif opcao == '5':
+            mercado.verificar_clientes()
+        elif opcao == '6':
+            mercado.verificar_vendas()
+        elif opcao == '0':
+            # Salva dados antes de sair
+            dados_salvar = {
+                'produtos': mercado.produtos,
+                'clientes': mercado.clientes,
+                'vendas': mercado.vendas
+            }
+            with open('dados_mercado.pkl', 'wb') as arquivo:
+                pickle.dump(dados_salvar, arquivo)
+            break
